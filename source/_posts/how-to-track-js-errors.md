@@ -1,7 +1,7 @@
 title: "怎样收集js报错"
 date: 2015-05-13 22:02:06
 tags: [javascript, Yii2]
-category: [javascript, Yii2]
+category: [PHP, Yii2]
 ---
 
 项目上线运行中，由于这样那样奇葩的浏览器的存在，导致我们的js代码存在一定的兼容性问题。那么可否收集到这些问题呢？
@@ -10,7 +10,7 @@ category: [javascript, Yii2]
 
 在W3C规范里，window.onerror是html5新定义的事件，但实际上，window.onerror从IE6开始就被支持了，而chrome、firefox、safari、opera，目前也都已经支持该事件。
 
-```
+```javascript
 //收集js报错信息并上报
 window.onerror = function(msg, url, line, column, error) {
 	var _e = encodeURIComponent,
@@ -25,7 +25,7 @@ window.onerror = function(msg, url, line, column, error) {
 
 服务端:
 
-```
+```php
 function actionJslog()
 {
 	$response = Yii::$app->getResponse();
@@ -56,7 +56,7 @@ __教训__:
 
 2. 提供兼容代码「置于head中所有script之前」
 
-```
+```javascript
 window.console = window.console || (function() {
 	var _c = {};
 	_c.log = _c.warning = _c.error = _c.info .. = function() {};

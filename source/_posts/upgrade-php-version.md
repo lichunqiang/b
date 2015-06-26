@@ -17,7 +17,7 @@ category: [PHP]
 
 根据之前的安装配置执行:
 
-```
+```bash
 $ ./configure --prefix=/usr/local/php5/ --with-libxml-dir --enable-cli --enable-fpm --with-mysqli --with-gettext --enable-mbstring --with-mcrypt --with-openssl --disable-debug --enable-opcache --with-pdo-mysql --with-mysql
 $ make && make install
 ```
@@ -30,7 +30,7 @@ $ make && make install
 
 例如, 我之前的扩展源文件目录 `/usr/local/src`, 我们并不是直接在之前安装的扩展目录中直接配置编译安装就可以了, 我们需要删除原来解压出来的文件, 重新解压扩展源文件, 进行扩展安装:
 
-```
+```bash
 //例如重新编译安装 Imagick
 $ rm -rf imagick-3.1.1
 $ tar -zxvf imagick-3.1.1.tar

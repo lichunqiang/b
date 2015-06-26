@@ -6,7 +6,7 @@ category: [NodeJS, javascript]
 
 1. In package directory
 
-```
+```javascript
 $ npm link
 ```
 
@@ -14,7 +14,7 @@ This createsa symlink to the current folder in npm's global installation directo
 
 2. Somewhere else, where you want to use the modules:
 
-```
+```javascript
 $npm  link <pkgname>
 ```
 

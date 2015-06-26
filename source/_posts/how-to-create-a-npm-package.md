@@ -1,29 +1,32 @@
 title: "创建一个简单的NodeJS程序"
 date: 2014-07-22 00:22:27
 tags: NodeJS
-category: [NodeJS, javascript]
+category: [NodeJS, NPM]
 ---
 
 创建一个文件夹test，并创建一个新文件uppercaseme.js
 
-	// uppercaseme.js
-	"use strict"
-	var fs = require('fs');
-	var myfile = "myfile.txt";
-
-	if(fs.existsSync(myfile)) {
-	    var content = fs.readFileSync(myfile, 'utf8');
-	    fs.writeFileSync(myfile, content.toUpperCase());
-	    console.log("Done");
-	} else {
-	    console.log("File does not exist - " + myfile);
-	}
+```javascript
+// uppercaseme.js
+"use strict"
+var fs = require('fs');
+var myfile = "myfile.txt";
+if(fs.existsSync(myfile)) {
+    var content = fs.readFileSync(myfile, 'utf8');
+    fs.writeFileSync(myfile, content.toUpperCase());
+    console.log("Done");
+} else {
+    console.log("File does not exist - " + myfile);
+}
+```
 
 代码的目的是读取myfile.txt并转化内容为大写。
 
 __(执行:)__
 
-	node uppercaseme
+```javascript
+node uppercaseme
+```
 
 > 执行命令行命令时需在同一个目录
 
@@ -33,35 +36,41 @@ __(执行:)__
 
 上一个列子将读取的文件hardcoding了，我们稍作改进,通过命令行读取要执行操作的文件。
 
-	//使用process.argv
-	0: node
-	1: <name-of-your-js-file>
-	2+....<additional arguments passed>
+```javascript
+//使用process.argv
+0: node
+1: <name-of-your-js-file>
+2+....<additional arguments passed>
+```
 
 更新代码：
 
-	"use strict"
-	var fs = require('fs');
-	if(process.argv.length > 2) {
-	    // Read the first additional argument passed to the program
-	    var myfile = process.argv[2];
+```javascript
+"use strict"
+var fs = require('fs');
+if(process.argv.length > 2) {
+// Read the first additional argument passed to the program
+var myfile = process.argv[2];
 
-	    if(fs.existsSync(myfile)) {
-	        var content = fs.readFileSync(myfile, 'utf8');
-	        fs.writeFileSync(myfile, content.toUpperCase());
-	        console.log("Done");
-	    } else {
-	        console.log("File does not exist - " + myfile);
-	    }
-	} else {
-	    console.log("ERROR: Pass on a file name/path");
-	}
+if(fs.existsSync(myfile)) {
+    var content = fs.readFileSync(myfile, 'utf8');
+    fs.writeFileSync(myfile, content.toUpperCase());
+    console.log("Done");
+} else {
+    console.log("File does not exist - " + myfile);
+}
+} else {
+console.log("ERROR: Pass on a file name/path");
+}
+```
 
 代码做了简单的判断，当我们没有获取到输入的文件名时，抛出错误。
 
 __(执行:)__
 
-	node uppercaseme myfile.txt
+```javascript
+node uppercaseme myfile.txt
+```
 
 ## 创一个Node模块
 
@@ -69,19 +78,26 @@ __(执行:)__
 
 * 通过NPM安装
 
-	npm install uppercase
+```javascript
+npm install uppercase
+```
 
 * 在命令行中使用
 
-	uppercaseme <filename>
+```javascript
+uppercaseme <filename>
+```
 
 * 被当作模块在其他模块中使用
 
-	require('uppercaseme');
+```javascript
+require('uppercaseme');
+```
 
 #### 为了做到以上的效果，我们将会创建一个NPM包
 
 1. 首先我们需要做的是改变目录结构
+
 ```
 test
     src
@@ -98,7 +114,9 @@ test
 
 _(命令行仍然在test文件夹)_
 
-	node ./src/lib/uppercaseme ./myfile.txt
+```javascript
+node ./src/lib/uppercaseme ./myfile.txt
+```
 
 和之前的运行效果相同。
 
@@ -106,17 +124,20 @@ _(命令行仍然在test文件夹)_
 
 > 请注意这个文件没有扩展名
 
-	#!/usr/bin/env node
+```bash
+#!/usr/bin/env node
 
-	"use strict";
-	var path = require('path');
-	var fs = require('fs');
-	var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+"use strict";
+var path = require('path');
+var fs = require('fs');
+var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
 
-	require(lib + '/uppercaseme.js').convert();
+require(lib + '/uppercaseme.js').convert();
+```
 
 3. 改造文件为Node模块
-```
+
+```javascript
 "use strict"
 var fs = require('fs');
 function convertThis() {
@@ -136,6 +157,7 @@ function convertThis() {
 }
 exports.convert = convertThis;
 ```
+
 > 暴露出convert接口
 
 现在在进行测试，将会和之前效果相同
@@ -147,7 +169,7 @@ exports.convert = convertThis;
 1. 创建 src/package.json 和 src/README.md
 
 package.json:
-```
+```javascript
 {
   "author": "authoer",
   "name": "uppercaseme",

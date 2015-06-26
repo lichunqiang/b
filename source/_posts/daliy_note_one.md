@@ -1,7 +1,7 @@
 title: "今日笔记"
 date: 2013-02-21 23:55:11
-tags: php
-category: php
+tags: PHP
+category: [PHP, daliy]
 ---
 
 __PHP获取当前类名、函数名、方法名__
@@ -16,7 +16,7 @@ _(返回区分大小写)_
 ### 关于PHP中的函数
 
 * 函数名是大小写无关的
-```
+```php
 function Test() {
 	echo 'test';
 }
@@ -42,7 +42,7 @@ $t->say(); //print say something
 > PHP 中的所有函数和类都具有全局作用域，可以定义在一个函数之内而在之外调用，反之亦然。
 
 关于函数中的函数例子：
-```
+```php
 function foo()
 {
 	function bar()

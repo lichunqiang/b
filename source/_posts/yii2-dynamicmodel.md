@@ -14,7 +14,7 @@ DynamicModel是用来进行临时的数据验证，有些情况，我们不希�
 
 DynamicModel提供了静态方法 `validateData` 来辅助我们实现动态验证，考虑一下代码：
 
-```
+```php
 public function actionUpdateStatus($id, $status)
 {
 	$model = DynamicModel::validateData(compact('id', 'status'), [
@@ -39,7 +39,7 @@ public function actionUpdateStatus($id, $status)
 
 调用 `validateData` 方法，并传入属性值和验证方法会为我们自动生成一个 DynamicModel 的实力，当然我们也可以：
 
-```
+```php
 $model = new DynamicModel(compact('id', 'status'));
 $model->addRule(['id', 'status'], 'required')
 	  ->addRule(['id', 'status'], 'integer')
@@ -60,12 +60,12 @@ if ($model->validate()) {
 
 当希望为创建好的model新增属性时，我们可以：
 
-```
+```php
 $model->defineAttribute('user_id', 1111);
 $model->defineAttribute('name');
 ```
 
 需要删除某一属性时：
-```
+```php
 $model->undefineAttribute('name');
 ```

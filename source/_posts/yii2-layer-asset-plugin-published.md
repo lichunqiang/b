@@ -10,13 +10,13 @@ category: Yii2
 
 ### 安装
 
-```
+```bash
 composer require light/yii2-layer=*
 ```
 
 ### 使用
 
-```
+```php
 use light\assets\LayerAsset;
 
 LayerAsset::register($this);
@@ -24,7 +24,7 @@ LayerAsset::register($this);
 
 或者在移动端使用：
 
-```
+```php
 use light\assets\LayerMobileAsset;
 
 LayerMobileAsset::register($this);

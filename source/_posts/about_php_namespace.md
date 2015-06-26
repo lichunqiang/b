@@ -1,7 +1,7 @@
 title: "关于php的命名空间"
 date: 2015-04-21 23:59:20
-tags: php
-category: [php]
+tags: PHP
+category: [PHP]
 ---
 
 
@@ -13,16 +13,17 @@ category: [php]
 
 将全局的非命名空间中的代码和命名空间的代码组合在一起，只能使用大括号的形式。全局代码必须用一个不带名称的namespace语句加上大括号括起来：
 
-    namespace MyPorject {
-      const CONNECT_OK = 1;
-      class Connection {};
-      function connect() {};
-    }
-    namespace {
-      session_start();
-      $a = new MyProject\Connection();
-    }
-
+```php
+  namespace MyPorject {
+    const CONNECT_OK = 1;
+    class Connection {};
+    function connect() {};
+  }
+  namespace {
+    session_start();
+    $a = new MyProject\Connection();
+  }
+```
 ## 使用命名空间
 
 1. 非限定名称，或不包含前缀的类型名称。
@@ -39,15 +40,17 @@ category: [php]
 
 > 注意访问任意全局类、函数或常量，都可以使用完全限定名称，例如 \strlen() 或 \Exception 或 \INI_ALL。
 
-    namespace Foo \ Bar;
+```php
+namespace Foo \ Bar;
 
-    function strlen($str) {
-      return $str;
-    }
+function strlen($str) {
+  return $str;
+}
 
-    echo strlen('test'); //print test
+echo strlen('test'); //print test
 
-    echo \strlen('test'); //print 4
+echo \strlen('test'); //print 4
+```
 
 ### 命名空间和动态语言特征
 
@@ -59,11 +62,13 @@ PHP支持两种抽象的访问当前命名空间内部元素的方法， __NAMES
 
 关键字 namespace 可用来显式访问当前命名空间或子命名空间中的元素。它等价于类中的 self 操作符。
 
-    namespace MyProject;
+```php
+namespace MyProject;
 
-    function foo() {};
+function foo() {};
 
-    namespace \ foo(); // calls function MyProject \ foo()
+namespace \ foo(); // calls function MyProject \ foo()
+```
 
 ### 使用命名空间：别名/导入
 
@@ -73,21 +78,24 @@ PHP支持两种抽象的访问当前命名空间内部元素的方法， __NAMES
 
 ##### 导入操作是在编译的时候执行的，但动态的类名称、函数名称或常量名则不是。
 
-    use My \ Full \ classname as Another, My \ Full \ NSname;
+```php
+use My \ Full \ classname as Another, My \ Full \ NSname;
 
-    $obj = new Another; //实例化 My \ Full \ classname 对象
-    $a = 'Another';
-    $obj2 = new $a; //实例化一个Another对象
+$obj = new Another; //实例化 My \ Full \ classname 对象
+$a = 'Another';
+$obj2 = new $a; //实例化一个Another对象
+```
 
 > 另外，导入操作只影响非限定名称和限定名称。完全限定名称由于是确定的，故不受导入的影响
 
-    use My \ Full \ classname as Another, My \ Full \ NSname;
+```php
+use My \ Full \ classname as Another, My \ Full \ NSname;
 
-    $obj = new Another; // My\Full\classname
-    $obj = new \Another; // instance of class Another
-    $obj = new Another \ thing; // My\Full\classname\thing;
-    $obj = new \Another\thing; // Another\thing
-
+$obj = new Another; // My\Full\classname
+$obj = new \Another; // instance of class Another
+$obj = new Another \ thing; // My\Full\classname\thing;
+$obj = new \Another\thing; // Another\thing
+```
 
 ##### 后备全局函数/常量
 
@@ -95,15 +103,19 @@ PHP支持两种抽象的访问当前命名空间内部元素的方法， __NAMES
 
 类名称总是解析到当前命名空间中的名称。
 
-    namespace MyProject;
+```php
+namespace MyProject;
 
-    $a = new Exception('hi'); //会报错：Class 'MyProject\Exception' not found.
+$a = new Exception('hi'); //会报错：Class 'MyProject\Exception' not found.
+```
 
 因此在访问系统内部或不包含在命名空间中的类名称时，必须使用完全限定名称。
 
-    namspace MyProject;
+```php
+namspace MyProject;
 
-    $a = new \Exception('hi');// success
+$a = new \Exception('hi');// success
+```
 
 对于函数和常量来说，如果当前命名空间中不存在该函数或常量，PHP 会退而使用全局空间中的函数或常量。
 

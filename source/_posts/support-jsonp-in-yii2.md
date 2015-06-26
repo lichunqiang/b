@@ -1,7 +1,7 @@
 title: "如何让Yii2支持jsonp"
 date: 2015-04-22 23:47:24
 tags: Yii2
-category: [php, Yii2]
+category: [PHP, Yii2]
 ---
 
 ## 什么是JSONP
@@ -14,7 +14,7 @@ JSONP是一个非官方的协议，它允许在服务器端集成Script tags返�
 
 这里我使用jQuery的 `getJSON` 方法：
 
-```
+```javascript
 $.getJSON('http://www.b.com/api/users?callback=?', function(data) {
 	console.log(data)
 });
@@ -26,7 +26,7 @@ $.getJSON('http://www.b.com/api/users?callback=?', function(data) {
 
 先上代码：
 
-```
+```php
 Yii::$app->getResponse()->format = Response::FORMAT_JSONP;
 $user_count = (new Query)->from('users')->count();
 
@@ -52,7 +52,7 @@ return [
 
 位于 [[yii\web\JsonResponseFormatter]]
 
-```
+```php
 /**
  * Formats response data in JSONP format.
  * @param Response $response

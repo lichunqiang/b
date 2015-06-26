@@ -35,7 +35,7 @@ public function actionSearch()
 
 由此，我们可以通过设置 trueValue 和 falseValue 来进行更多的比较，例如：
 
-```
+```php
 //此场景我们需要验证用户的输入为 yes 或者 no
 
 $model = new DynamicModel(['action']);

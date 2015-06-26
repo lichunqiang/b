@@ -5,16 +5,16 @@ category: [linux, svn, centos]
 ---
 
 * 检查是否安装svn
-```
+```bash
 $rpm -qa subversion
 ```
 * 卸载旧版本的svn
-```
+```bash
 $yum remove subversion
 ```
 * 安装需要的apache模块
 
-```
+```bash
 $yum install mod_dav_svn mod_auth_mysql
 //确认是否安装
 $ls /etc/httpd/modules | grep svn
@@ -24,7 +24,7 @@ $ls /etc/httpd/modules | grep svn
 
 * 验证安装
 
-```
+```bash
 $svnserve --version
 	svnserve，版本 1.6.11 (r934486)
 	编译于 Jun 23 2012，00:44:03
@@ -47,23 +47,30 @@ $svnserve --version
 由于我的服务器80端口被nginx占用，所以采用nginx反向代理的办法,apache监听8080端口，
 配置nginx
 
-	proxy_pass http://127.0.0.1:8080
-
+```bash
+proxy_pass http://127.0.0.1:8080
+```
 #### 配置svn用户密码 ####
 
 > 设置密码
 
-	$sudo htpasswd -c /opt/svn/passwd abc
+```
+$sudo htpasswd -c /opt/svn/passwd abc
+```
 
 创建用户abc并按照提示设置密码，网页认证的时候使用该用户名和密码登录。后面再添加用户的时候去掉-c选项。
 
 *初始化版本仓库，导入原始代码
 
-	$ svn import /data/www/code file:///opt/svn/repos1 -m 'first init'
-	$ chown -R apache.apache repos
+```bash
+$ svn import /data/www/code file:///opt/svn/repos1 -m 'first init'
+$ chown -R apache.apache repos
+```
 
 #### 创建svn版本库 ####
 
-	$ svnadmin create /opt/svn/testrepos
+```bash
+$ svnadmin create /opt/svn/testrepos
+```
 
 > svnadmin在创建版本库时是root身份，需使用```chown```改变，保证svn对文件目录有权限

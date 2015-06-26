@@ -12,7 +12,7 @@ category: [Yii2]
 
 根据以上，我们在使用的时候需要注意的有：
 
-```
+```php
  $user = User::findOne();
 
  $user->status = 1; //假设原值也为1
