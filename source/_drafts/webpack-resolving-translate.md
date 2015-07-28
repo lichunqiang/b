@@ -34,3 +34,5 @@ webpack的模块解析
 ### 缓存
 
 所有的查找过程(遍历的目录等)都将会缓存起来，增加效率。
+
+[原文](http://webpack.github.io/docs/resolving.html)
