@@ -1,7 +1,7 @@
 title: "使用php cli 检查语法错误"
 date: 2015-04-21 23:51:10
-tags: php
-category: php
+tags: PHP
+category: PHP
 ---
 
 ## 如何检查PHP文件是否有语法错误
@@ -16,6 +16,6 @@ category: php
 
 使用命令行工具，如下:
 
-```sh
+```bash
 $ php -l filename.php
 ```

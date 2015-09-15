@@ -1,7 +1,7 @@
 title: "理解php的接口"
 date: 2013-01-21 23:57:23
-tags: php
-category: [php,technology]
+tags: PHP
+category: [PHP]
 ---
 
 

@@ -4,7 +4,7 @@ tags: javascript
 category: javascript
 ---
 
-```
+```javascript
 var a = '1'; // switch and case use '==='
 switch(a) {
 
@@ -26,7 +26,7 @@ Extends
 
 > switch结构不利于代码重用，往往可以用对象形式重写。
 
-```
+```javascript
 var o = {
     banana: function (){ return },
     apple: function (){ return },

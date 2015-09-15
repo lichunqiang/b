@@ -23,7 +23,7 @@ category: [git, github]
 
 2. 然后执行：
 
-```
+```bash
 $ git push -f origin 342cd123132..dew1dd:patch-1
 ```
 

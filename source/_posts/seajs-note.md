@@ -10,16 +10,17 @@ category: [seajs, javascript]
 [ppt]: https://speakerdeck.com/lifesinger/seajs
 
 __在这份Seajs的PPT中，玉伯介绍到了Seajs的实现__
+```javascript
+/*a.js*/
+define(function(require, exports, module){
+    var b = require('./b');
+    var c = require('./c');
+    //other code
+});
 
-	/*a.js*/
-	define(function(require, exports, module){
-		var b = require('./b');
-		var c = require('./c');
-		//other code
-	});
-
-	/*main.js*/
-	seajs.use(./a);
+/*main.js*/
+seajs.use(./a);
+```
 
 * Step1:  	解析 './a'
 * Step2.1:  下载a

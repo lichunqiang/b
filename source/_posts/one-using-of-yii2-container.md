@@ -12,7 +12,7 @@ category: [Yii2]
 
 这时候,我们可以使用 [[Yii::$contianer]] 的来实现：
 
-```
+```php
 //这里我们设置默认个数为10, 将此置于 bootstrap.php 中
 \Yii::$container->set('yii\data\Pagination', [
     'pageSize' => 10,
@@ -30,7 +30,7 @@ category: [Yii2]
 
 因此，考虑一下两种实现方式：
 
-```
+```php
 //1. pageSize 还是默认的20
 $paging = new \yii\data\Pagination;
 //2. pageSize 就是设置的 10 了
@@ -41,7 +41,7 @@ $paging = Yii::createObject('yii\data\Pagination');
 
 ## Yii::$container 是什么
 
-```
+```php
 Yii::$container = new yii\di\Container();
 ```
 

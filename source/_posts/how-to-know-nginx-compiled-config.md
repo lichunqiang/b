@@ -6,13 +6,13 @@ category: [nginx]
 
 #### 首先查看之前编译安装nginx的配置
 
-```sh
+```bash
 $ nginx -V
 ```
 
 会列出配置的参数：
 
-```
+```bash
 configure arguments: --prefix=/usr/local/webserver/nginx --user=nginx --group=nginx --with-http_stub_status_module --with-http_ssl_module --with-http_flv_module
 ```
 
@@ -24,7 +24,7 @@ configure arguments: --prefix=/usr/local/webserver/nginx --user=nginx --group=ng
 
 进入该目录，然后执行：
 
-```sh
+```bash
 $ ./configure --prefix=/usr/local/webserver/nginx --user=nginx --group=nginx --with-http_stub_status_module --with-http_ssl_module --with-http_flv_module --add-module path/module/
 
 $ make
@@ -36,7 +36,7 @@ $ make install
 
 不执行make install, 将执行make之后objs目录下的nginx替换现有的。(不要忘记对之前的进行备份)
 
-```sh
+```bash
 $ ./configure --prefix=/usr/local/webserver/nginx --user=nginx --group=nginx --with-http_stub_status_module --with-http_ssl_module --with-http_flv_module --add-module path/module/
 
 $ make
