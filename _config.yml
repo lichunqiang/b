@@ -4,8 +4,8 @@
 
 # Site
 title: Light's Blog
-subtitle: yii2
-description: yii framework blog
+subtitle:
+description:
 author: light
 language: zh-Hans
 timezone:
