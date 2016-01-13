@@ -1,4 +1,4 @@
-title: "关于switch在js中需要注意的地方"
+title: "nginx重定向小例"
 date: 2016-01-13 16:17:39
 tags: [nginx, seo]
 category: [nginx, seo]
