@@ -3,18 +3,22 @@ sudo: false
 node_js:
   - 5.3.0
 
+before_install:
+  - git config --global user.name "lichunqiang"
+  - git config --global user.email "light-li@hotmail.com"
+
 install:
   - npm install hexo-cli -g
 
 script:
-  - git clone -b master https://${token}@github.com/lichunqiang/b
-  - cd b
+  - git clone https://${token}@github.com/lichunqiang/lichunqiang.github.io.git .deploy_git -v
+  - git --version
+  - git remote add -f b https://${token}@github.com/lichunqiang/b.git
+  - git fetch b
   - npm install
+
   - hexo g
-  - git config --global user.name "lichunqiang"
-  - git config --global user.email "light-li@hotmail.com"
-  - cd public
-  - git add --all
-  - git commit -m `$(echo `travis-ci "+Site updated %Y-%m-%d %H:%M:%S"`)`
-  - git remote add origin https://${token}@github.com/lichunqiang/lichunqiang@github.io
-  - git push -f origin master
+  - cd .deploy_git
+  - git add -A
+  - git commit -am "Auto deploy from Travis-CI."
+  - git push --force
