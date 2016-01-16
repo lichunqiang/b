@@ -6,6 +6,7 @@ node_js:
 before_install:
   - git config --global user.name "lichunqiang"
   - git config --global user.email "light-li@hotmail.com"
+  - git config --global push.default simple
 
 install:
   - npm install hexo-cli -g
