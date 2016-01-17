@@ -19,6 +19,7 @@ script:
   - npm install
 
   - hexo g
+  - cp -r public/* .deploy_git/
   - cd .deploy_git
   - git add -A
   - git commit -am "Auto deploy from Travis-CI."
