@@ -6,7 +6,7 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "yii2, php, mysql, redis, nginx"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -57,8 +57,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Mist
-
+scheme: Muse
+#scheme: Mist
+#scheme: Pisces
 
 
 
