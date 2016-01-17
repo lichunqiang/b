@@ -23,4 +23,4 @@ script:
   - cd .deploy_git
   - git add -A
   - git commit -am "Auto deploy from Travis-CI."
-  - git push --force
+  - git push --force -q
