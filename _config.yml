@@ -91,3 +91,9 @@ menu:
 # 代码高亮主题
 # available: normal | night | night eighties | night blue | night bright
 highlight_theme: night
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
