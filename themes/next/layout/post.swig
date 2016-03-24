@@ -20,6 +20,11 @@
         {% include '_partials/share/duoshuo_share.swig' %}
       {% endif %}
     </div>
+    <div class="donate">
+      <img src="/images/qr.png">
+      <img src="/images/alipay.png">
+      <p>如果这篇文章对您有帮助，不妨微信小额赞助我一下，让我有动力继续写出高质量的教程。</p>
+    </div>
   </div>
 
 {% endblock %}
