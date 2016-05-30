@@ -78,3 +78,23 @@ $ export GOPATH="/home/go"
 
 
 至此Golang已经成功安装！
+
+## 小知识
+
+直接在命令行运行 `$ export PATH=$PATH:/usr/local/go`， 只会在当前会话有效，登出或者注销系统后，PATH的设置就会失效。
+
+如果想永久保存设置，则需要修改`/etc/profile`，在末尾加上(如果之前没有添加过的话):
+
+```
+PATH=$PATH:/usr/local/go
+export PATH
+GOPATH=/home/go
+export GOPATH
+```
+然后执行
+
+```
+$source /etc/profile
+```
+
+之后可以通过 `echo $PATH` 来查看设置是否生效。
