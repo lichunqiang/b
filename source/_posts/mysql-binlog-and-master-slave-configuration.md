@@ -1,4 +1,4 @@
-title: "MySQL开启binlog, 配置主从记录"
+title: "MySQL开启binlog, 配置主从小记"
 date: 2016-08-31 20:50:22
 tags: [MySQL]
 category: [MySQL]
@@ -19,7 +19,8 @@ binlog-ignore-db=performance_schema
 binlog-do-db=kit
 ```
 
-`binlog-ignore-db`配置哪些数据不需要记录binlog, `binlog-do-db` 配置哪些数据需要记录binlog.
+* `binlog-ignore-db`配置哪些数据不需要记录binlog
+* `binlog-do-db` 配置哪些数据需要记录binlog
 
 ## 查看binlog状态
 
@@ -65,7 +66,9 @@ $ mysqlbinlog --start-position=4 --stop-position=585 binlog.000001 > /home/out.t
 $ mysqlbinlog binlog.000001 > /home/out.txt
 ```
 
-导出的文件名可以通过上面的`show binary logs;` 来查看需要导出的binlog文件, position 可以根据 `show binlog events`中的__Pos__字段来确定.
+导出的文件名可以通过上面的`show binary logs;` 来查看需要导出的binlog文件
+
+position 可以根据 `show binlog events`中的__Pos__字段来确定.
 
 ## 配置主从
 
@@ -87,14 +90,14 @@ mysql> show master status;
 
 ### 配置主库
 
-修改MySQL配置文件:
+修改Master服务器MySQL配置文件:
 
 ```
 log-bin=binlog //必须开启binlog
 server-id=1 // 必须, 服务器唯一ID, 默认是1,一般取IP最后一段
 ```
 
-在主服务器上建立帐户并授权slave:
+在Master服务器上建立帐户并授权slave:
 
 ```
 mysql > grant replication slave on *.* to slave01@192.168.10.12 identified by '123qwe';
@@ -105,11 +108,11 @@ mysql > grant replication slave on *.* to slave01@192.168.10.12 identified by '1
 
 ### 配置从库
 
-修改MySQL配置文件：
+修改Slave服务器MySQL配置文件：
 
 ```
 log-bin=binlog //不是必须
-server-id=2 //必须, 需要唯一
+server-id=2 //必须, 需要唯一,一般取IP最后一段
 ```
 
 重启MySQL.
@@ -120,6 +123,9 @@ server-id=2 //必须, 需要唯一
 mysql> change master to master_host='192.168.10.11',master_user='slave01',master_password='123qwe';
 mysql> start slave;
 ```
+
+* `master_host` 配置为Master服务器的IP地址
+* `master_user` 和 `master_password` 分别为在Master服务器上进行授权的账号和密码
 
 查看从库状态：
 
@@ -144,7 +150,7 @@ mysql>show slave status;
 之前需要将主库的数据导到从库.
 
 
-遇到的问题：
+### 遇到的问题
 
 在从库执行 `show slave staus` 后发现：
 
