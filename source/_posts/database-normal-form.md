@@ -1,7 +1,7 @@
 title: "数据常用的三个范式"
 date: 2015-04-22 00:02:41
-tags: Mysql
-category: [Mysql, 数据库]
+tags: MySQL
+category: [MySQL, 数据库]
 ---
 ### 数据库设计所常用的范式：
 

@@ -1,7 +1,7 @@
 title: "在关联表查询的时候是在ON添加条件和在where添加添加条件异同"
 date: 2015-06-15 22:07:27
-tags: [Mysql]
-category: [Mysql]
+tags: [MySQL]
+category: [MySQL]
 ---
 
 数据库在通过连接两张或多张表来返回记录时，都会生成一张中间的临时表，然后再将这张临时表返回给用户。

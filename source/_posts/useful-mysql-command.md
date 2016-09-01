@@ -1,7 +1,7 @@
 title: "经常使用到的Mysql命令"
 date: 2013-11-21 23:57:23
-tags: Mysql
-category: [Mysql]
+tags: MySQL
+category: [MySQL]
 ---
 
 #### create database with utf-8
