@@ -27,7 +27,12 @@ $ systemctl enable beanstalkd.service
 $ systemctl start beanstalkd.service
 ```
 
-> 默认beanstalkd开始了binlog, 所以确保默认的目录存在 `mkdir -p /var/lib/beanstalkd/binlog`
+4. 手动启动并开启binlog
+
+```bash
+$ mkdir -p /data/beanstalkd
+$ /usr/bin/beanstalkd -b /data/beanstalkd -u root &
+```
 
 参考资料:
 
