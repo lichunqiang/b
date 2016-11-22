@@ -35,9 +35,7 @@ wss://.../socket.io/?EIO=2&transport=websocket&sid=p3af7ZNfvogtq6tAAAG0'
 failed: Error during WebSocket handshake: Unexpected response code: 400.
 ```
 
-然而, 开始并没有去查看导致这个错误的具体原因是什么, 而是直接进行了测试, 测试的结果是
-
-系统能够正常运行.
+然而, 开始并没有去查看导致这个错误的具体原因是什么, 而是直接进行了测试, 测试的结果是__系统能够正常运行__.
 
 
 ## 出坑
