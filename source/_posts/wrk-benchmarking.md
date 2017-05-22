@@ -1,6 +1,8 @@
-使用 wrk 来测试接口性能
------------------------
-
+title: "使用 wrk 来测试接口性能"
+date: 2017-05-22 20:17:39
+tags: [wrk, benchmarking]
+category: [wrk, benchmarking]
+---
 
 ## 什么是wrk
 
