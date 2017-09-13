@@ -1,12 +1,8 @@
-
-
-```
 title: "分而治之，加快消耗"
 date: 2017-09-13 9:17:39
 tags: [php, queue, beanstalkd, supervisor]
 category: [php, queue, beanstalkd, supervisor]
 ---
-```
 
 __场景__
 
