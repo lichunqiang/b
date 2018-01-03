@@ -3,7 +3,6 @@ date: 2018-01-3 10:17:39
 tags: ["HTTP", "cURL", "PHP-cURL"]
 category: ["HTTP", "cURL", "PHP-cURL"]
 ---
-### 解决PHP执行cURL返回头中包含100 continue
 
 当使用cURL请求服务时，会执行	：
 
