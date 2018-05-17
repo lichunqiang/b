@@ -102,7 +102,9 @@
 
 
     <div class="post-body">
-
+	  {% if not is_index %}
+	  <blockquote class="min2read">本文阅读大概需要 <strong>{{ min2read(post.content) }}</strong> 分钟</blockquote>
+	  {% endif %}
       {# Gallery support #}
       {% if post.photos and post.photos.length %}
         <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">

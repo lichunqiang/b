@@ -64,6 +64,7 @@
   <meta property="fb:app_id" content="{{ theme.facebook_sdk.app_id }}" />
 {% endif %}
 
+{{ autoCanonical(config, page) }}
 
 {{
   open_graph({

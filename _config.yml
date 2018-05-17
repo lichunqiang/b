@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.lzuer.net
+url: https://blog.lzuer.net
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -72,7 +72,7 @@ deploy:
   branch: master
 
 # configuration for next
-duoshuo_shortname: lichunqiang
+#duoshuo_shortname: lichunqiang
 
 # 社交链接，将在侧栏中显示
 social:
