@@ -94,3 +94,4 @@ proxy=http://10.9.197.104:6000
 proxy_username=username
 proxy_password=password
 ```
+<img src="/images/frp-as-bridge.png" />
